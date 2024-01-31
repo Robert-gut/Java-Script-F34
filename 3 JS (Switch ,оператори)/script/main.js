@@ -223,3 +223,10 @@ select.addEventListener('change', function(){
             bg.style.backgroundColor = 'red'
     }
 })
+
+
+const a = 1
+
+if (typeof a === 'number'){
+    
+}
