@@ -169,3 +169,11 @@
 
 // const nestedList = generateNestedList(2,5)
 // console.log(nestedList);
+
+
+function test() {
+    console.log(arguments.length);//0 - 9
+    console.log(arguments[0 to 9]);
+}
+
+test(1,2,3,54,6,76,8,87,12,2)
