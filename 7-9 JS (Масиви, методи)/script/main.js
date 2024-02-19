@@ -251,23 +251,151 @@
 
 //! find() вертає цілий перший найдений обєкт
 
-const cars = [
-    {name: 'MB', cost: 100000},
-    {name: 'BMW', cost: 150000},
-    {name: 'Audi', cost: 200000},
-]
+// const cars = [
+//     {name: 'MB', cost: 100000},
+//     {name: 'BMW', cost: 150000},
+//     {name: 'Audi', cost: 200000},
+// ]
 
 
-console.log(cars.find((item) => {return item.cost === 150000}));//{}
-console.log(cars.find((item) => {return item.cost === 150000}));//undefined
+// console.log(cars.find((item) => {return item.cost === 150000}));//{}
+// console.log(cars.find((item) => {return item.cost === 150000}));//undefined
 
 
-//! findIndex() вертає ІНДЕКС перший найдений обєкта
+// //! findIndex() вертає ІНДЕКС перший найдений обєкта
 
-console.log(cars.findIndex(item => item.cost !== 100000));//1
-console.log(cars.findIndex(item => item.cost === 180000));// -1
+// console.log(cars.findIndex(item => item.cost !== 100000));//1
+// console.log(cars.findIndex(item => item.cost === 180000));// -1
 
-//! filter() вертає ВСІ обєкти які відповідають умові 
+// //! filter() вертає ВСІ обєкти які відповідають умові 
 
-console.log(cars.find(item => item.cost > 90000)); //1 перша машина
-console.log(cars.filter(item => item.cost > 90000));//всі машини
+// console.log(cars.find(item => item.cost > 90000)); //1 перша машина
+// console.log(cars.filter(item => item.cost > 90000));//всі машини
+
+
+// ////////////////////////////////////////////////////////
+
+// function finds(array) {
+//   let val = array[0]
+//   let indexVal = [0]
+//   for (let i = 1; i < array.length; i++) {
+//     if (array[i] < val) {
+//       val = array[i]
+//       indexVal = [i]
+//     } else if (array[i] === val){
+//       indexVal.push(i)
+//     }
+//   }
+//   return indexVal
+// }
+
+// const c = [12, 12, 34, 56, 5, 66, 5, 45, 5]
+// console.log(finds(c));
+
+// ////////////////////////////////////////////////////////
+
+//! сортування мисива
+
+//? sort()
+
+//String
+// const cars = ['Porshe', 'Renault', 'Skoda', 'Bmw', 'Audi', 'MB', 'Renault']
+// console.log(cars)
+
+// const test = ['d', 'b', 'a', 'c' ]
+// const test2 = ['г', 'в', 'б', 'а' ]
+
+// console.log(cars.sort());
+// console.log(test.sort());
+// console.log(test2.sort());
+
+// //number
+
+// const num = [9, 8, 7, 5, 6, 4, 3, 1]
+
+// console.log(num.sort());
+// console.log(num.sort((a, b) => {
+//   // if(a > b) return -1
+//   // if(b > a) return 1
+//   return b - a
+// }));
+
+//? revers
+// const cars = ['Porshe', 'Renault', 'Skoda', 'Bmw', 'Audi', 'MB', 'Renault']
+// console.log(cars)
+
+// console.log(cars.reverse());
+
+
+//! Модифікування масива
+
+//? map() - проходиться по кожнуму ел і вертає новий модифікований масив
+
+// const cars = ['Porshe', 'Renault', 'Skoda', 'Bmw', 'Audi', 'MB', 'Renault']
+// console.log(cars)
+
+
+// console.log(cars.map(item => {return item.toUpperCase()}));
+
+// const carsToUpperCase = cars.map(item => item.toUpperCase())
+
+// console.log(carsToUpperCase);
+
+//? split - розділяє строку по знач в масив
+
+// //numbers
+// const numStr = '12,12,34,56,5,66,5,45,5'
+// console.log('✌️numStr --->', numStr);
+
+// const numArr = numStr.split(',')
+// console.log('✌️numArr --->', numArr);
+
+// // string
+
+// const lorem = 'Lorem ipsum dolor sit amet'
+// console.log('✌️lorem --->', lorem);
+
+// const loremArr = lorem.split(' ')
+// console.log('✌️loremArr --->', loremArr);
+
+
+
+//? join() - робить з масива строку
+
+// const cars = ['Porshe', 'Renault', 'Skoda', 'Bmw', 'Audi', 'MB', 'Renault']
+// console.log(cars)
+
+// console.log(cars.join());
+// console.log(cars.join('+-+'));
+// console.log(cars.join('          '));
+
+// const carsStr = cars.join(' ')
+// console.log('✌️carsStr --->', carsStr);
+
+//! перевірка на масив Array.isArray()
+
+// const array = []
+// const object = {}
+// const string = ''
+// const number = NaN
+
+// console.log(typeof array);
+// console.log(typeof object);
+// console.log(typeof string);
+// console.log(typeof number);
+
+// function isArr(arr) {
+//   if (Array.isArray(arr)) {
+//     return true
+//   } else {
+//     return false
+//   }
+// }
+
+// console.log(isArr(string));
+// console.log(isArr(number));
+// console.log(isArr(array));
+// console.log(isArr(object));
+
+// Array.isArray(array)? console.log(true): console.log(false)
+
