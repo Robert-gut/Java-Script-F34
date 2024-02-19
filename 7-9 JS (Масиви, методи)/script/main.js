@@ -399,3 +399,41 @@
 
 // Array.isArray(array)? console.log(true): console.log(false)
 
+//! Метод циклу  forEach() або як перебрати масив
+
+// const cars = ['Porshe', 'Renault', 'Skoda', 'Bmw', 'Audi', 'MB', 'Renault']
+// console.log(cars)
+
+// for (let i = 0; i < cars.length; i++) {
+//   console.log(cars[i])
+// }
+
+// for (const iterator of cars) {
+//   console.log(iterator);
+// }
+
+
+// //////////////////////////////////////////////////////////////////////
+// const forEach =  cars.forEach((item, index, array) => {
+//   return `forEach ${item} => ${index} => ${array}`
+// })
+
+// const map = cars.map((item ,index, array) => {
+//   return `map ${item} => ${index} => ${array}`
+// })
+
+// console.log('✌️forEach --->', forEach);
+// console.log('✌️map --->', map);
+// //////////////////////////////////////////////////////////////////////
+
+//! reduce()
+
+// const num = [1,2,4,5,6,7,8,879,67,564,546,34]
+// console.log('✌️num --->', num);
+
+// const reduce = num.reduce((previousValue, item, index, array) => {
+//   return previousValue + item
+// }, 0)
+
+// console.log('✌️reduce --->', reduce);
+
