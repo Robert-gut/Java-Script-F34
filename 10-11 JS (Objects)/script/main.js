@@ -194,7 +194,197 @@
 //   nation: 'use',
 // }
 
+
+
 // const test = Object.assign({}, student1, student2)
 // console.log('✌️test --->', test);
 
+
+// ///////////////////// day 2/////////////////////////
+
+// function nullOrUndefined(object) {
+//   for (const key in object) {
+//     if(object[key] === null || object[key] === undefined){
+//       return true
+//     }
+//   }
+//   return false
+// }
+
+// const test = {
+//   key1: 'test',
+//   // key2: undefined
+// }
+
+// console.log(nullOrUndefined(test));
+
+
+// const test = {}
+
+// function naem(obj){
+
+//   for (const key in object) {
+//   return 'not emty'
+//   }
+//   return 'emty'
+// }
+
+
+// const test = [
+//   {name: 'B', age: 23},
+//   {name: 'A', age: 2},
+//   {name: 'D', age: 45},
+//   {name: 'C', age: 12},
+// ]
+
+// function sort(array, property){
+//   const res =  array.sort((a, b) => b[property].localeCompare(a[property]))
+//   return res
+// }
+
+// console.log(sort(test, 'name'));
+
+//? про методи обєктів і про копіювання
+
+// const car = {
+//   name: 'MB',
+//   model: 'gla',
+//   maxSpeed: 250
+// }
+
+//* не працює
+// const car2 = car
+// car2.maxSpeed = 100
+// console.log('✌️car2 --->', car2);
+// console.log('✌️car --->', car);
+
+//* object.assign() великий мінус
+
+// 1
+
+// const car2 = Object.assign({}, car)
+// car2.maxSpeed = 100
+// console.log('✌️car --->', car);
+// console.log('✌️car2 --->', car2);
+
+//2 
+
+// const car3 = {...car}
+// car3.maxSpeed = 10
+// console.log('✌️car3 --->', car3);
+// console.log('✌️car --->', car);
+
+// ! мінуси ціх варянтів
+
+// const car = {
+//   name: 'MB',
+//   model: 'gla',
+//   maxSpeed: {
+//     km: 320,
+//     ml: 200
+//   }
+// }
+
+
+// 1
+// const car2 = Object.assign({}, car)
+// car2.maxSpeed.km = 100
+// console.log('✌️car --->', car);
+// console.log('✌️car2 --->', car2);
+
+//2 
+// const car3 = {...car}
+// car3.maxSpeed.km = 10
+// console.log('✌️car3 --->', car3);
+// console.log('✌️car --->', car);
+
+//! глибоке копіюванн 
+
+// const car = {
+//   name: 'MB',
+//   model: 'gla',
+//   maxSpeed: {
+//     km: 320,
+//     ml: 200
+//   }
+// }
+
+// const newCarJson = JSON.stringify(car)
+// console.log('✌️car --->', car);
+// console.log('✌️newCarJson --->', typeof newCarJson);
+// console.log('✌️newCarJson --->', newCarJson);
+
+// const newCar = JSON.parse(newCarJson)
+// newCar.maxSpeed.km = 999
+// console.log('✌️newCar --->', newCar);
+// console.log('✌️newCar --->', typeof newCar);
+
+//* скоречена запис
+// const newCar = JSON.parse(JSON.stringify(car))
+// newCar.maxSpeed.km = 999
+
+
+// console.log('✌️newCar --->', newCar);
+// console.log('✌️car --->', car);
+
+//! з чим не працює
+
+// const car = {
+//   name: 'MB',
+//   model: 'gla',
+//   maxSpeed: {
+//     km: 320,
+//     ml: 200
+//   },
+//   productionYear: new Date('2018-05-12')
+// }
+
+// const newCar = JSON.parse(JSON.stringify(car))
+
+
+// console.log('✌️car --->', car.productionYear.getDay());
+// console.log('✌️newCar --->', newCar.productionYear.getDay());
+
+
+//! екстрений варянт 
+
+// const newCar = structuredClone(car)
+// newCar.maxSpeed.km = 12
+
+// console.log('✌️car --->', car.productionYear.getTime());
+// console.log('✌️newCar --->', newCar.productionYear.getFullYear());
+
+// console.log('✌️car --->', car);
+// console.log('✌️newCar --->', newCar);
+
+//? мотоди object()
+
+const car = {
+  name: 'MB',
+  model: 'gla',
+  maxSpeed: {
+    km: 320,
+    ml: 200
+  },
+}
+
+//!  Object.keys()
+const objKey = Object.keys(car)
+console.log('✌️objKey --->', objKey);
+
+//! Object.values()
+const objValues = Object.values(car)
+console.log('✌️objValues --->', objValues);
+
+//! Object.entries()
+const objectEntries = Object.entries(car)
+console.log('✌️objectEntries --->', objectEntries);
+
+//! object.defineProperty()
+
+const objectProperty = Object.defineProperty(car, 'clearance', {
+  value: 35
+})
+console.log('✌️objectProperty --->', objectProperty);
+console.log('✌️objectProperty --->', objectProperty);
 
