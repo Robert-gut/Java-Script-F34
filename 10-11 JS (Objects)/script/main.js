@@ -359,32 +359,60 @@
 
 //? мотоди object()
 
-const car = {
-  name: 'MB',
-  model: 'gla',
-  maxSpeed: {
-    km: 320,
-    ml: 200
-  },
-}
+// const car = {
+//   name: 'MB',
+//   model: 'gla',
+//   maxSpeed: {
+//     km: 320,
+//     ml: 200
+//   },
+// }
 
 //!  Object.keys()
-const objKey = Object.keys(car)
-console.log('✌️objKey --->', objKey);
+// const objKey = Object.keys(car)
+// console.log('✌️objKey --->', objKey);
 
 //! Object.values()
-const objValues = Object.values(car)
-console.log('✌️objValues --->', objValues);
+// const objValues = Object.values(car)
+// console.log('✌️objValues --->', objValues);
 
 //! Object.entries()
-const objectEntries = Object.entries(car)
-console.log('✌️objectEntries --->', objectEntries);
+// const objectEntries = Object.entries(car)
+// console.log('✌️objectEntries --->', objectEntries);
 
 //! object.defineProperty()
 
-const objectProperty = Object.defineProperty(car, 'clearance', {
-  value: 35
-})
-console.log('✌️objectProperty --->', objectProperty);
-console.log('✌️objectProperty --->', objectProperty);
+// const objectProperty = Object.defineProperty(car, 'clearance', {
+//   value: 35
+// })
+// console.log('✌️objectProperty --->', objectProperty);
+// console.log('✌️objectProperty --->', objectProperty);
 
+
+
+const cars = [{name: 'BMW'}{}{}]
+
+// 10
+
+function editCar (index, property, newValue) {
+  cars[index][property] = newValue
+}
+
+editCar(0, 'name', 'MB')
+
+// 11
+
+function addProperty(property, value = null){
+  cars.forEach(car => car[property] = value)
+}
+
+addProperty('color', 'black')
+
+// 12 
+
+{isInGarage: true}
+
+
+(index, isInGarage)
+
+isInGarage ? 'in garage' : 'no is garage'
