@@ -1,9 +1,9 @@
 const input = document.querySelector('.userText')
 const btn = document.querySelector('button')
-window.addEventListener('keypress', e => e.key === 'Enter' ? addLetters() : null)
+window.addEventListener('keypress', e => e.key === 'Enter' && addLetters())
 const addLetters = () => {
   const listItems = document.querySelectorAll('li')
-  listItems.length ? listItems.forEach(item => item.remove()): null
+  listItems.length && listItems.forEach(item => item.remove())
   
   const letters = {}
   for (let i = 0; i < input.value.length; i++) {
