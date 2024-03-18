@@ -72,3 +72,10 @@ performed.addEventListener('click', () => {
     }
   }
 })
+
+
+const tipBtn = document.querySelector('.tipBtn')
+const overlay = document.querySelector('#overlay')
+tipBtn.addEventListener('click', ()=>{
+  overlay.style.height = '100vh'
+})

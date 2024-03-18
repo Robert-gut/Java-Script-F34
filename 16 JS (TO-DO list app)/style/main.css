@@ -26,7 +26,7 @@ input{
   box-sizing: border-box;
 }
 
-input:focus, button:focus{
+input:focus{
   background: white;
   border: 3px solid #86A8E7;
   outline: none;
@@ -91,7 +91,7 @@ button:hover{
   font-size: 20px;
 }
 
-.todos li:nth-child(n2){
+.todos li:nth-child(2n){
   background: #edf1f5
 }
 
@@ -132,4 +132,15 @@ button:hover{
 
 .fa-trash-alt{
   color: #7F7FD5
+}
+
+
+#overlay{
+  height: 0;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: rgba(0,0,0, 0.7);
+  overflow: hidden;
+  transition: 4s;
 }
