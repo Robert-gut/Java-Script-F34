@@ -38,3 +38,13 @@ button{
   font-size: 16px;
   cursor: pointer;
 }
+
+.error {
+  border: 1px solid red; /* Червона рамка для некоректного інпута */
+}
+
+.error-message {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 5px; /* Відступ між інпутом та повідомленням про помилку */
+}

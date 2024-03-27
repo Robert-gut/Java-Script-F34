@@ -9,7 +9,30 @@ class User {
   }
 
   register(){
-    
+    if (this.firstName.length < 1) {
+      alert('error first name')
+      return
+    }
+    if (this.lastName.length < 1) {
+      alert('error first name')
+      return
+    }
+    if (this.date.length < 1) {
+      alert('error first name')
+      return
+    }
+    if (this.email.length < 1) {
+      alert('error first name')
+      return
+    }
+    if (this.password.length < 6) {
+      alert('error first name')
+      return
+    }
+    if (this.password !== this.confirm_password) {
+      alert('error first name')
+      return
+    }
     console.log(this);
   }
 }
@@ -18,14 +41,13 @@ const registrationForm = document.getElementById('registrationForm')
 
 registrationForm.addEventListener('submit', (e) => {
   e.preventDefault()
-  // console.log(e);
   
-  const firstName = document.getElementById('firstName').value
-  const lastName = document.getElementById('lastName').value
-  const date = document.getElementById('date').value
-  const email = document.getElementById('email').value
-  const password = document.getElementById('password').value
-  const confirm_password = document.getElementById('confirm_password').value
+  const firstName = e.target[0].value
+  const lastName = e.target[1].value
+  const date = e.target[2].value
+  const email = e.target[3].value
+  const password = e.target[4].value
+  const confirm_password = e.target[5].value
 
   const user = new User(firstName, lastName, date, email, password, confirm_password)
   user.register()
