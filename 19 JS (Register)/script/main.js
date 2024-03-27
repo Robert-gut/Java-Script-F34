@@ -34,10 +34,14 @@ class User {
       return
     }
     console.log(this);
+    localStorage.setItem(this.email, JSON.stringify(this))
+    alert('Успішна реєстрація!')
+    return true
   }
 }
 
 const registrationForm = document.getElementById('registrationForm')
+const loginForm = document.getElementById('loginForm')
 
 registrationForm.addEventListener('submit', (e) => {
   e.preventDefault()
@@ -50,5 +54,43 @@ registrationForm.addEventListener('submit', (e) => {
   const confirm_password = e.target[5].value
 
   const user = new User(firstName, lastName, date, email, password, confirm_password)
-  user.register()
+  if(user.register()){
+    registrationForm.style.display = 'none'
+    loginForm.style.display = 'block'
+  }
+})
+
+// go to register btn
+
+document.getElementById('registerBtn').addEventListener('click', () => {
+  loginForm.style.display = 'none'
+  registrationForm.style.display = 'block'
+})
+
+// log in
+
+loginForm.addEventListener('submit', (e) => {
+  e.preventDefault()
+
+  const logInEmail = document.getElementById('logInEmail').value
+  const logInPassword = document.getElementById('logInPassword').value
+  const userData = localStorage.getItem(logInEmail)
+  
+  if(userData){
+    const user = JSON.parse(userData)
+    if (user.password === logInPassword) {
+      alert('Вхід успішний!')
+    }else{
+      alert('Неправельний пароль!')
+    }
+  } else {
+    alert('Користувача з таким Email не існує!')
+  }
+})
+
+// go to logIn page
+
+document.getElementById('goToLogInPage').addEventListener('click', ()=>{
+  registrationForm.style.display = 'none'
+  loginForm.style.display = 'block'
 })
