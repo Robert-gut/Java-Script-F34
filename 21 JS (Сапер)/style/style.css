@@ -1,0 +1,36 @@
+body{
+  display: flex;
+  justify-content: center;
+}
+
+#game-board{
+  display: grid;
+  grid-template-columns: repeat(10, 30px);
+  grid-template-rows: repeat(10, 30px);
+  gap: 2px;
+}
+
+.cell{
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ccc;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+}
+
+
+.cell.mine{
+  background-color: rgb(245, 36, 127);
+  color: #fff
+}
+
+.cell.revealed{
+  background-color: rgb(36, 151, 245);
+  color: #fff
+}
+
+.cell.flagged{
+  background-color: rgb(245, 235, 36);
+  color: #fff
+}
