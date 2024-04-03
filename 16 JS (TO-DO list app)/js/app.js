@@ -18,11 +18,14 @@ pencil.addEventListener('click', () => {
 
 
 //добавлення
-const add = (text) => {
+const add = (text, isChecked = false) => {
   const li = document.createElement('li')
   const span = document.createElement('span')
   const i = document.createElement('i')
   li.textContent = text
+  if(isChecked){
+    li.classList.add('checked')
+  }
   i.classList.add('fas', 'fa-trash-alt')
   span.insertAdjacentElement('afterbegin', i)
   li.insertAdjacentElement('afterbegin', span)
@@ -78,4 +81,32 @@ const tipBtn = document.querySelector('.tipBtn')
 const overlay = document.querySelector('#overlay')
 tipBtn.addEventListener('click', ()=>{
   overlay.style.height = '100vh'
+})
+
+
+///////////////////////////////////////////////////
+
+save.addEventListener('click', () => {
+  const todos = [...ul.querySelectorAll('li')]
+  
+  const savedTodos = todos.map(todo => ({
+    text: todo.textContent,
+    isChecked: todo.classList.contains('checked')
+  }))
+  localStorage.setItem('todos', JSON.stringify(savedTodos))
+})
+
+function displayTodos() {
+  const savedTodos = JSON.parse(localStorage.getItem('todos')) || []
+  console.log('✌️savedTodos --->', savedTodos);
+  savedTodos.forEach(todo => {
+    add(todo.text, todo.isChecked)
+  })
+} 
+
+window.addEventListener('DOMContentLoaded', displayTodos)
+
+clear.addEventListener('click', ()=>{
+  localStorage.removeItem('todos')
+  ul.innerHTML = ''
 })
