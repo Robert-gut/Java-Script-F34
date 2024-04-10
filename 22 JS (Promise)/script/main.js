@@ -89,3 +89,17 @@
 
 // console.log(data);
 ////////////////////////////////////////
+
+function createPromise(value){
+  return new Promise((resolve, reject) =>{
+    resolve(value);
+  })
+}
+
+createPromise('hello')
+  .then((value) => {
+    console.log(value);
+  })
+  .catch(err => {
+    console.log(err);
+  })
