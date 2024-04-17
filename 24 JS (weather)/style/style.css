@@ -55,6 +55,7 @@ body {
 }
 
 .weather {
+  display: none;
   height: 90%;
   position: relative;
   background-color: rgba(106, 103, 103, 0.7);

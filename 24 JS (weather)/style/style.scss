@@ -6,7 +6,6 @@ body{
 }
 
 .search{
-  // display: none;
   height: 90%;
   background-color: rgba(193, 215, 221, 0.85);
   border: cornsilk 2px solid;
@@ -59,7 +58,7 @@ body{
 }
 
 .weather{
-  // display: none;
+  display: none;
   height: 90%;
   position: relative;
   background-color: rgba(106, 103, 103, 0.7);

@@ -4,8 +4,6 @@ if (new Date().getHours() > 20 || new Date().getHours() < 8) {
   document.body.style.backgroundImage = 'url(../img/thumb_l_0689.jpg)'
 }
 
-
-
 window.addEventListener('keypress', (e)=>{
   if(e.key === 'Enter'){cityName()}
 })
@@ -34,7 +32,6 @@ async function weather (url) {
     }
     main(data)
     newElementTable(data)
-    console.log('✌️data --->', data);
   } catch (error) {
     console.log(error);
   }
@@ -61,11 +58,34 @@ function main(data){
 
 function newElementTable(data) {
   const table = document.getElementById('allInformaition')
-  console.log(data.list[0]);
   data.list.forEach(item => {
     const {dt_txt, main, visibility, wind, weather} = item
     const {feels_like, humidity, pressure, sea_level, temp, temp_max, temp_min} = main
-    const weatherDescription = weather.description
-    const weatherIconUrl = `https://openweathermap.org/img/wn/${weather.icon}@2x.png`
+    const weatherDescription = weather[0].description
+    const weatherIconUrl = `https://openweathermap.org/img/wn/${weather[0].icon}@2x.png`
+    const rowHtml = `
+    <td>${dt_txt}</td>
+    <td>${parseInt(temp)} C&deg</td>
+    <td>${parseInt(feels_like)} C&deg</td>
+    <td>${parseInt(temp_max)} C&deg</td>
+    <td>${parseInt(temp_min)} C&deg</td>
+    <td>${visibility / 1000} км.</td>
+    <td>${pressure} Па</td>
+    <td>${wind.speed} м/с</td>
+    <td>${humidity} %</td>
+    <td>${sea_level} м.</td>
+    <td>${weatherDescription}</td>
+    <td><img src='${weatherIconUrl}'></td>
+    `
+    const row = document.createElement('tr')
+    row.innerHTML = rowHtml
+    table.appendChild(row)
   })
+  document.querySelector('.search').style.display = 'none'
+  document.querySelector('.weather').style.display = 'block'
 }
+
+document.getElementById('btnBack').addEventListener('click', ()=>{
+  document.querySelector('.search').style.display = 'block'
+  document.querySelector('.weather').style.display = 'none'
+})
