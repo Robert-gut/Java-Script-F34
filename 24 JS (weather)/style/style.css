@@ -1,10 +1,13 @@
 body {
   background-color: rgb(0, 217, 255);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
 }
 
 .search {
   height: 90%;
-  background-color: #c1d7dd;
+  background-color: rgba(193, 215, 221, 0.85);
   border: cornsilk 2px solid;
   border-radius: 10px;
   text-align: center;
@@ -49,4 +52,70 @@ body {
   font-weight: bold;
   font-size: 24px;
   cursor: pointer;
+}
+
+.weather {
+  height: 90%;
+  position: relative;
+  background-color: rgba(106, 103, 103, 0.7);
+  border: cornsilk 2px solid;
+  border-radius: 10px;
+  text-align: center;
+}
+.weather #time {
+  font-size: 55px;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  color: #163644;
+}
+.weather #city {
+  font-size: 85px;
+  margin-top: 10px;
+  color: #250979;
+  margin-bottom: 0px;
+}
+.weather #generalPnj {
+  position: relative;
+  top: -35px;
+  margin-bottom: 0;
+  padding: 0;
+  width: 300px;
+}
+.weather #weatherStan {
+  position: relative;
+  margin: 0;
+  top: -100px;
+  text-align: center;
+  font-size: 40px;
+  color: #130639;
+  text-transform: uppercase;
+  font-style: initial;
+}
+.weather #temp {
+  margin: 40px 0 10px;
+  text-align: center;
+  font-size: 115px;
+  color: #062330;
+  text-transform: uppercase;
+}
+.weather #temFelt {
+  margin: 20px;
+  text-align: center;
+  font-size: 25px;
+  color: #011823;
+  text-transform: uppercase;
+}
+.weather #tempMax, .weather #tempMin, .weather #humidity, .weather #pressure, .weather #seaLevel, .weather #visibility {
+  position: relative;
+  top: -45px;
+  margin: 20px;
+  text-align: center;
+  font-size: 25px;
+  color: rgb(21, 10, 73);
+  text-transform: uppercase;
+}
+.weather #btnBack {
+  width: 50px;
+  position: absolute;
+  left: 0;
 }/*# sourceMappingURL=style.css.map */

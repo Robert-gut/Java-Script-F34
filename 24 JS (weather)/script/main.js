@@ -1,3 +1,11 @@
+if (new Date().getHours() > 20 || new Date().getHours() < 8) {
+  document.body.style.backgroundImage = 'url(../img/night.jpg)'
+} else{
+  document.body.style.backgroundImage = 'url(../img/thumb_l_0689.jpg)'
+}
+
+
+
 window.addEventListener('keypress', (e)=>{
   if(e.key === 'Enter'){cityName()}
 })
@@ -9,7 +17,7 @@ function cityName(){
     city.style.borderColor = 'red'
   }else{
     city.style.borderColor = 'cornsilk'
-    const url = `http://api.openweathermap.org/data/2.5/forecast?q=${city.value}&lang=ua&units=metric&appid=33a4edb2fe337fd387e632012d97d0de`
+    const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city.value}&lang=ua&units=metric&appid=33a4edb2fe337fd387e632012d97d0de`
     weather(url)
   }
 }
@@ -25,6 +33,7 @@ async function weather (url) {
       city.style.borderColor = 'cornsilk'
     }
     main(data)
+    newElementTable(data)
     console.log('✌️data --->', data);
   } catch (error) {
     console.log(error);
@@ -38,7 +47,7 @@ function main(data){
     document.getElementById('time').innerHTML = `${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`
   },1000)
   document.getElementById('dateWether').innerHTML = `погода на: ${data.list[0].dt_txt}`
-  document.getElementById('generalPnj').src = `http://openweathermap.org/img/wn/${data.list[0].weather[0].icon}@4x.png`
+  document.getElementById('generalPnj').src = `https://openweathermap.org/img/wn/${data.list[0].weather[0].icon}@4x.png`
   document.getElementById('weatherStan').innerHTML = data.list[0].weather[0].description
   document.getElementById('temp').innerHTML = `${parseInt(data.list[0].main.temp)}`
   document.getElementById('temFelt').innerHTML = `Відчувається як: ${data.list[0].main.temp}`
@@ -48,4 +57,15 @@ function main(data){
   document.getElementById('pressure').innerHTML = `Тиск: ${data.list[0].main.pressure} Па`
   document.getElementById('seaLevel').innerHTML = `Рівень моря: ${data.list[0].main.sea_level} м`
   document.getElementById('visibility').innerHTML = `Видимісьть: ${data.list[0].visibility} м`
+}
+
+function newElementTable(data) {
+  const table = document.getElementById('allInformaition')
+  console.log(data.list[0]);
+  data.list.forEach(item => {
+    const {dt_txt, main, visibility, wind, weather} = item
+    const {feels_like, humidity, pressure, sea_level, temp, temp_max, temp_min} = main
+    const weatherDescription = weather.description
+    const weatherIconUrl = `https://openweathermap.org/img/wn/${weather.icon}@2x.png`
+  })
 }
