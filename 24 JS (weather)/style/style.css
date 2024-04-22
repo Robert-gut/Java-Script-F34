@@ -119,4 +119,27 @@ body {
   width: 50px;
   position: absolute;
   left: 0;
+}
+.weather .positionTop {
+  position: relative;
+  top: -60px;
+}
+.weather .positionTop #titleForTable {
+  margin: 0;
+  font-size: 24px;
+}
+.weather .positionTop hr {
+  color: cornsilk;
+}
+.weather .positionTop table, .weather .positionTop tr, .weather .positionTop th, .weather .positionTop td {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  border: 3px solid rgb(112, 107, 107);
+}
+.weather .positionTop table th, .weather .positionTop tr th, .weather .positionTop th th, .weather .positionTop td th {
+  color: rgb(13, 13, 61);
+}
+.weather .positionTop table tr:hover > td, .weather .positionTop tr tr:hover > td, .weather .positionTop th tr:hover > td, .weather .positionTop td tr:hover > td {
+  background-color: rgba(207, 225, 228, 0.3);
 }/*# sourceMappingURL=style.css.map */
